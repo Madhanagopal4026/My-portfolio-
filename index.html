@@ -9,7 +9,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            transition: margin-left 0.5s;
             background: #f0f0f0;
         }
 
@@ -18,53 +17,71 @@
             color: white;
             padding: 1em;
             text-align: center;
+            position: relative;
         }
 
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 0.5em 1em;
         }
 
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .openbtn {
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #4CAF50;
+        nav .logo {
+            font-size: 1.5em;
             color: white;
-            padding: 10px 15px;
-            border: none;
+            text-decoration: none;
         }
 
-        .openbtn:hover {
-            background-color: #45a049;
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none; /* Hidden by default */
+        }
+
+        nav ul.show {
+            display: flex; /* Show flex on larger screens */
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column; /* Column layout for better readability */
+        }
+
+        nav ul li {
+            margin: 1em 0; /* Added margin for spacing */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5em;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        .hamburger {
+            display: block;
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                width: 100%;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hamburger {
+                font-size: 2.5em;
+            }
         }
 
         #profile {
@@ -112,9 +129,46 @@
             background-color: #e7f5e9;
         }
 
-        #about {
-            background-color: #fff8e1;
-        }
+        #education {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+#education h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.education-item {
+  margin-bottom: 20px;
+}
+
+.education-item h3 {
+  font-size: 22px;
+  color: #555;
+}
+
+.education-item p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.education-item ul {
+  list-style-type: disc;
+  margin: 10px 0 0 20px;
+  padding: 0;
+}
+
+.education-item ul li {
+  font-size: 16px;
+  color: #444;
+  margin: 5px 0;
+}
 
         #skills {
             background-color: #e1f5fe;
@@ -131,24 +185,77 @@
         #contact {
             background-color: #ffebee;
         }
+
+        .certificate-section {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .certificate-section img {
+            width: 300px;
+            height: auto;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .address {
+            font-style: italic;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 10px 0;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .address:hover {
+            background-color: #e7f5e9;
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 768px) {
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            .download-btn {
+                padding: 0.5em 1em;
+            }
+
+            section {
+                padding: 1em;
+                margin: 0.5em 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
+        <nav>
+            <a href="#" class="logo"></a>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
         <h1>My Portfolio</h1>
     </header>
-
-    <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
-    </div>
-
-    <span class="openbtn" onclick="openNav()">&#9776; Menu</span>
 
     <section id="profile">
         <img src="madhan.jpg" alt="Profile Picture" class="profile-pic">
@@ -157,59 +264,97 @@
     </section>
 
     <section id="home">
-        <h2>Welcome to My Portfolio</h2>
-        <p>Discover my work and skills.</p>
+        <h2>Welcome to My Profile</h2>
+        <p>Enthusiastic and motivated IT fresher with a strong academic background and a passion for technology. Proficient in programming languages such as HTML, css, python, Digital marketing, and familiar with a variety of operating systems and software applications. Eager to learn new technologies and contribute to the IT industry.</p>
     </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an IT fresher with a passion for technology and problem-solving.</p>
-    </section>
+   <section id="education">
+  <h2>Education</h2>
+  <div class="education-item">
+    <h3>Bachelor Degree in Computer Science</h3>
+    <p><strong>Grace college of engineering Affiliated with Anna University, Tuticorin</strong></p>
+    <p><em>2021 – 2025</em></p>
+    <ul>
+      <li>Specialized in Software Development </li>
+      <li>GPA: 8 </li>
+      <li>Relevant Courses: HTML, CSS , WORDPRESS ,POS ,MYSQL</li>
+    </ul>
+  </div>
+</section>
+
 
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li>JavaScript</li>
             <li>Python</li>
-            <li>HTML & CSS</li>
-            <li>React</li>
+            <li>HTML, CSS</li>
+            <li>UI & UX design</li>
+            <li>Digital Marketing</li> 
+            <li>WordPress</li>
+            <li>GitHub</li>  
         </ul>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1: Description and <a href="#">link</a></li>
-            <li>Project 2: Description and <a href="#">link</a></li>
-            <li>Project 3: Description and <a href="#">link</a></li>
-        </ul>
-    </section>
+    <h2>Projects</h2>
+    <div>
+        <h3>Project 1: Load Management System</h3>
+        <img src="project1.png" alt="Project 1 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+        <p>It use to show the loadman is available for work or not by clicking the toggle button - fixed LOADMAN and ADMIN is programmed------------------------------
+         <a  href="https://madhanagopal4026.github.io/Load-management-system-/">DEMO</a></p>
+    </div>
+    <div>
+        <h3>Project 2: </h3>
+        <img src="placeholder2.jpg" alt="Project 2 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+        <p><a href="#">UPCOMING</a></p>
+    </div>
+    <div>
+        <h3>Project 3: </h3>
+        <img src="placeholder3.jpg" alt="Project 3 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+        <p> <a href="#">UPCOMING</a></p>
+    </div>
+</section>
+
 
     <section id="certificates">
         <h2>Certificates</h2>
-        <ul>
-            <li>Certificate 1: <a href="#">View Certificate</a></li>
-            <li>Certificate 2: <a href="#">View Certificate</a></li>
-            <li>Certificate 3: <a href="#">View Certificate</a></li>
-        </ul>
+        <div class="certificate-section">
+            <img src="Madhangove.png" alt="Certificate">
+        </div>
+        <div class="certificate-section">
+            <img src="mern.png" alt="Certificate">
+        </div>
+        <div class="certificate-section">
+            <img src="Python internship .png" alt="Certificate">
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: madhan6079804@gmail.com</p>
-        <p>Address: 6/545/2 st Mary's Colony 3rd Street east,
-        Thoothukudi-1</p>
+        <div class="address">
+            <p>6/545/2 St Mary's Colony 3rd Street East, Thoothukudi-1</p>
+        </div>
+        <div class="social-links">
+            <a href="mailto:madhan6079804@gmail.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+            </a>
+            <a href="https://www.instagram.com/tuty_boy_madhan" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://github.com/Madhanagopal4026" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+        </div>
     </section>
 
     <script>
-        function openNav() {
-            document.getElementById("sidebar").style.width = "250px";
-            document.body.style.marginLeft = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("sidebar").style.width = "0";
-            document.body.style.marginLeft = "0";
+        function toggleMenu() {
+            var navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('show')) {
+                navLinks.classList.remove('show');
+            } else {
+                navLinks.classList.add('show');
+            }
         }
     </script>
 </body>
