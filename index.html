@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,74 +21,15 @@
             position: relative;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 0.5em 1em;
-        }
-
-        nav .logo {
-            font-size: 1.5em;
-            color: white;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: none; /* Hidden by default */
-        }
-
-        nav ul.show {
-            display: flex; /* Show flex on larger screens */
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: column; /* Column layout for better readability */
-        }
-
-        nav ul li {
-            margin: 1em 0; /* Added margin for spacing */
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 0.5em;
-            border-radius: 5px;
-        }
-
-        nav ul li a:hover {
-            background-color: #575757;
-        }
-
-        .hamburger {
-            display: block;
-            font-size: 2em;
-            cursor: pointer;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                width: 100%;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            .hamburger {
-                font-size: 2.5em;
-            }
-        }
-
+       
         #profile {
             text-align: center;
             padding: 2em;
             background-color: #f0f0f0;
+        }
+        #dp{
+            display: flex;
+            justify-content: center;
         }
 
         .profile-pic {
@@ -180,6 +122,10 @@
 
         #certificates {
             background-color: #f9fbe7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         #contact {
@@ -196,6 +142,11 @@
             height: auto;
         }
 
+        .social-links{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
         .social-links a {
             margin: 0 10px;
             text-decoration: none;
@@ -241,24 +192,47 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo"></a>
-            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-            <ul id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>My Portfolio</h1>
-    </header>
+    <nav class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <span class="text-xl font-bold">My Portfolio</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+              <a href="#home" class="hover:text-gray-300">Home</a>
+              <a href="#education" class="hover:text-gray-300">Education</a>
+              <a href="#skills" class="hover:text-gray-300">Skills</a>
+              <a href="#projects" class="hover:text-gray-300">Projects</a>
+              <a href="#certificates" class="hover:text-gray-300">Certificates</a>
+              <a href="#contact" class="hover:text-gray-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+              <button id="menuBtn" class="focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden px-6 pb-6">
+          <a href="#home" class="block py-2">Home</a>
+          <a href="#education" class="block py-2">Education</a>
+          <a href="#skills" class="block py-2">Skills</a>
+          <a href="#projects" class="block py-2">Projects</a>
+          <a href="#certificates" class="block py-2">Certificates</a>
+          <a href="#contact" class="block py-2">Contact</a>
+        </div>
+      </nav>
+    
 
     <section id="profile">
+       <div id="dp">
         <img src="madhan.jpg" alt="Profile Picture" class="profile-pic">
+       </div> 
         <h2>I AM MADHANA GOPAL</h2>
         <a href="resume madhan.pdf" download class="download-btn">Download Resume</a>
     </section>
@@ -348,14 +322,11 @@
     </section>
 
     <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById('nav-links');
-            if (navLinks.classList.contains('show')) {
-                navLinks.classList.remove('show');
-            } else {
-                navLinks.classList.add('show');
-            }
-        }
+        const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
     </script>
 </body>
 </html>
