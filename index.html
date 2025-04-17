@@ -70,6 +70,12 @@
         #home {
             background-color: #e7f5e9;
         }
+        #home h3{
+            font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+        }
 
         #education {
   padding: 20px;
@@ -115,21 +121,69 @@
         #skills {
             background-color: #e1f5fe;
         }
+        #skills ul{
+            list-style-type: disc;
+  margin: 10px 0 0 20px;
+  padding: 0;
+        }
+        #skills ul li{
+            font-size: 16px;
+  color: #444;
+  margin: 5px 0;
+        }
+        #skills h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
         #projects {
             background-color: #f1f8e9;
         }
 
-        #certificates {
+        #projects div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #projects h2 {
+            font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+        }
+        #projects div button{
+            background-color: blue;
+            color: white;
+            height: 40px;
+            width: 140px;
+            border: none;
+            border-radius: 5px;
+        }
+        .certificate-section {
             background-color: #f9fbe7;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+        #certificates h2{
+            font-size: 28px;
+            color: #333;
+             margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
         #contact {
             background-color: #ffebee;
+        }
+        #contact h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
         .certificate-section {
@@ -238,7 +292,7 @@
     </section>
 
     <section id="home">
-        <h2>Welcome to My Profile</h2>
+        <h3>Welcome to My Profile</h3>
         <p>Enthusiastic and motivated IT fresher with a strong academic background and a passion for technology. Proficient in programming languages such as HTML, css, python, Digital marketing, and familiar with a variety of operating systems and software applications. Eager to learn new technologies and contribute to the IT industry.</p>
     </section>
 
@@ -251,7 +305,7 @@
     <ul>
       <li>Specialized in Software Development </li>
       <li>GPA: 8 </li>
-      <li>Relevant Courses: HTML, CSS , WORDPRESS ,POS ,MYSQL</li>
+      <li>Relevant Courses: HTML, CSS ,MONGODB, Render, POS ,MYSQL</li>
     </ul>
   </div>
 </section>
@@ -260,11 +314,11 @@
     <section id="skills">
         <h2>Skills</h2>
         <ul>
-            <li>Python</li>
             <li>HTML, CSS</li>
             <li>UI & UX design</li>
             <li>Digital Marketing</li> 
-            <li>WordPress</li>
+            <li>MONGODB</li>
+            <li>Render</li>
             <li>GitHub</li>  
         </ul>
     </section>
@@ -272,18 +326,18 @@
     <section id="projects">
     <h2>Projects</h2>
     <div>
-        <h3>Project 1: Load Management System</h3>
+        <h3><b>Project 1:</b> Load Management System </h3>
         <img src="project1.png" alt="Project 1 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
-        <p>It use to show the loadman is available for work or not by clicking the toggle button - fixed LOADMAN and ADMIN is programmed------------------------------
-         <a  href="https://madhanagopal4026.github.io/Load-management-system-/">DEMO</a></p>
+        <p>It use to show the loadman is available for work or not by clicking the toggle button - fixed LOADMAN and ADMIN is programmed</p>
+         <button><a  href="https://madhanagopal4026.github.io/Load-management-system-/">Redirect to LMS</a></button><br>
     </div>
     <div>
-        <h3>Project 2: AC Service Booking System </h3>
-        <img src="project2.jpg" alt="Project 2 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
-        <p><a href="https://ac-service-booking.onrender.com/">Redirect to project</a></p>
+        <h3><b>Project 2:</b> AC Service Booking System </h3>
+        <img src="project2.jpg" alt="Project 2 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);"><br>
+        <button><a href="https://ac-service-booking.onrender.com/">Redirect to ACS </a></button><br>
     </div>
     <div>
-        <h3>Project 3: </h3>
+        <h3><b>Project 3:</b> </h3>
         <img src="placeholder3.jpg" alt="Project 3 Image" style="width:100%; max-width:300px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
         <p> <a href="#">UPCOMING</a></p>
     </div>
